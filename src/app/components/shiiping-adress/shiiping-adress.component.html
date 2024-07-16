@@ -1,0 +1,20 @@
+<div class="container">
+    <form class="w-50 mx-auto mt-4" [formGroup]="shippingForm" (ngSubmit)="shipOrder(shippingForm)">
+        <h2 class="text-main my-2">Shipping Adress</h2>
+        <div class="my-2">
+            <label for="">details</label>
+            <input type="text" class="form-control" formControlName="details">
+        </div>
+        <div class="my-2">
+            <label for="">phone</label>
+            <input type="text" class="form-control" formControlName="phone">
+        </div>
+        <div class="my-2">
+            <label for="">city</label>
+            <input type="text" class="form-control" formControlName="city">
+        </div>
+
+
+        <button class="btn bg-main text-white">pay now</button>
+    </form>
+</div>

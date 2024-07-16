@@ -1,0 +1,33 @@
+<div class="container bg-main-light p-4 border shadow-sm my-5">
+    <h4 class="my-2 fw-bold">Shop Cart</h4>
+    <p class="text-main fw-bold font-sm border-bottom pb-3">Total Price: {{cartItems?.totalCartPrice}}</p>
+
+    <div class="row p-2 pb-3 border-bottom align-items-center" *ngFor="let cartItem of cartItems?.products">
+        <div class="col-md-1">
+            <div>
+                <img class="w-100 img-thumbnail" [src]="cartItem?.product.imageCover" alt="">
+            </div>
+        </div>
+        <div class="col-md-11">
+            <div>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <p class="my-0 fw-bold">{{cartItem?.product.title}}</p>
+                        <p class="text-main fw-bold font-sm my-0">price: {{cartItem?.price}}</p>
+                        <button class="btn m-0 p-0 ">
+                            <i class="fa-regular fa-trash-can text-main"></i>
+                            <span (click)="removeCartItem(cartItem.product._id)" class="mx-1 fw-bold font-sm">remove</span>
+                        </button>
+                    </div>
+                    <div>
+                        <button (click)="updateCart(cartItem.product._id, cartItem.count+1)" class="border-main rounded">+</button>
+                        <span class="mx-3">{{cartItem.count}}</span>
+                        <button (click)="updateCart(cartItem.product._id, cartItem.count-1)" class="border-main rounded">-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a class="btn bg-main text-white mt-4" [routerLink]="['/shippingAdress',cartItems?._id]"> online payment <img src="./assets/images/visa-1.svg" width="30px" alt=""></a>
+</div>
